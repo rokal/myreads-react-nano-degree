@@ -1,6 +1,6 @@
 import React from 'react'
 const SELECT_HINT = 'Move to...'
-import {BOOK_OPTIONS, getBookStyle} from '../config'
+import {SHELVES, getBookStyle} from '../config'
 import Select from './Select'
 
 export default class Book extends React.Component {
@@ -15,10 +15,10 @@ export default class Book extends React.Component {
         return (
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={getBookStyle(book.imageUrl)}></div>
+                    <div className="book-cover" style={getBookStyle(book.imageLinks.smallThumbnail)}></div>
                     <div className="book-shelf-changer">
                         <Select
-                            options={BOOK_OPTIONS}
+                            options={SHELVES}
                             onChange={this.handleBookOptionChange}
                             placeholder={SELECT_HINT}
                         />
