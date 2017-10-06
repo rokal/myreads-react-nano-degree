@@ -1,26 +1,35 @@
-import React from 'react'
-const SELECT_HINT = 'Move to...'
-import {SHELVES, getBookStyle} from '../config'
-import Select from './Select'
+import React from 'react';
+import { object, func, string } from 'prop-types';
+import {get} from 'lodash';
+import { SHELVES, getBookStyle } from '../utils';
+import Select from './Select';
 
-export default class Book extends React.Component {
+const SELECT_HINT = 'Move to...';
+const optionsToSelect = [...SHELVES, { value: 'null', label: 'None' }];
 
-    handleBookOptionChange = (newOption) => {
-        const {book, onOptionChanged} = this.props;
-        onOptionChanged(book, newOption)
+class Book extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleBookOptionChange = this.handleBookOptionChange.bind(this);
+    }
+
+    handleBookOptionChange(newOption) {
+        const { book, onOptionChanged } = this.props;
+        onOptionChanged(book, newOption);
     }
 
     render() {
-        const {book} = this.props;
+        const { book, shelf } = this.props;
         return (
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={getBookStyle(book.imageLinks.smallThumbnail)}></div>
+                    <div className="book-cover" style={getBookStyle(get(book, 'imageLinks.smallThumbnail', ''))}></div>
                     <div className="book-shelf-changer">
                         <Select
-                            options={SHELVES}
+                            options={optionsToSelect}
                             onChange={this.handleBookOptionChange}
                             placeholder={SELECT_HINT}
+                            value={shelf}
                         />
                     </div>
                 </div>
@@ -30,3 +39,10 @@ export default class Book extends React.Component {
         )
     }
 }
+Book.propTypes = {
+    book: object.isRequired,
+    shelf: string.isRequired,
+    onOptionChanged: func.isRequired
+};
+
+export default Book;

@@ -1,5 +1,6 @@
 import React from 'react'
 // import * as BooksAPI from './BooksAPI'
+import 'semantic-ui-css/semantic.min.css';
 import './App.css'
 import Home from './containers//Home'
 import SearchPage from './containers/SearchPage'

@@ -1,0 +1,36 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true
+        },
+        "sourceType": "module"
+    },
+    "extends": "eslint:recommended",
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        // "no-const-assign": "warn",
+        // "no-this-before-super": "warn",
+        // // "no-undef": "warn",
+        // "no-unreachable": "warn",
+        // "no-unused-vars": "error",
+        // "constructor-super": "warn",
+        // "comma-dangle": "warn",
+        // "no-duplicate-imports": "error",
+        // "comma-style": "warn",
+        // "valid-typeof": "warn",
+        "func-style":["error", "declaration", { "allowArrowFunctions": true }],
+        "no-confusing-arrow": ["error", {"allowParens": false}],
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error"
+    },
+    "parser": "babel-eslint"
+}
