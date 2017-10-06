@@ -15,4 +15,5 @@ This is the first project of react nano degree program. It manages the book stor
 To run this project, follow the instructions below:
 1.  Clone the project by typing `git clone https://github.com/rokal/myreads-react-nano-degree.git`
 2.  `cd myreads-react-nano-degree`  to move in the root directory of the project and then,
-3. `npm start` to execute the project
+3. `npm install` to install the project dependancies
+4. `npm start` to execute the project
